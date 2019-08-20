@@ -13,15 +13,18 @@ namespace DevTestes.Models
         public int BugProblemaId { get; set; }
 
         [Column(TypeName = "varchar(30)")]
-        [Required(ErrorMessage ="Este campo é obrigatório!")]
+        [Required(ErrorMessage = "Este campo é obrigatório!")]
         public string Funcionario { get; set; }
 
-        [Display(Name ="Data complemento")]
-        [Required(ErrorMessage ="Este campo é obrigatório!")]
+        [Display(Name = "Data complemento")]
+        [Required(ErrorMessage = "Este campo é obrigatório!")]
+        [DataType(DataType.Date)]
         public DateTime DtaComplemento { get; set; }
 
-        [Column(TypeName ="varchar(6)")]
-        [Required(ErrorMessage ="Este campo é obrigatório!")]
+        [Column(TypeName = "varchar(6)")]
+        [Required(ErrorMessage = "Este campo é obrigatório!")]
+        [Range(1, 99999)]
+        [DataType(DataType.Currency)]
         public string Chamado { get; set; }
 
         [Column(TypeName = "varchar(20)")]
