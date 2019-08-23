@@ -1,14 +1,14 @@
 ﻿@model DevTestes.Models.BugProblema
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Excluir registro - Bug/Problema";
 }
 
-<h1>Delete</h1>
+<h1>Excluir registro</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Tem certeza que deseja excluir o registro?</h3>
 <div>
-    <h4>BugProblema</h4>
+    
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -57,7 +57,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="BugProblemaId" />
-        <input type="submit" value="Confirmar" class="btn btn-danger" /> |
+        <input type="submit" value="Excluir" class="btn btn-danger" />
         <a asp-action="Index" class="btn btn-success">Cancelar</a>
     </form>
 </div>
