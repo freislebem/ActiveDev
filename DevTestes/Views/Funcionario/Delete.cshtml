@@ -4,9 +4,8 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<div class="alert alert-danger" role="alert"><h2>Confirma e exclusão do registro?</h2></div>
 
-<h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Funcionario</h4>
     <hr />
@@ -21,7 +20,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="AnalistaId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-success">Cancelar</a>
     </form>
 </div>
