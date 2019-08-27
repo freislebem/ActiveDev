@@ -10,7 +10,7 @@ namespace DevTestes.Models
     public class Funcionario
     {
         [Key]
-        public int AnalistaId { get; set; }
+        public int FuncionarioId { get; set; }
 
         [Display(Name ="Funcionário")]
         [Required(ErrorMessage ="Este campo é obrigatório!")]

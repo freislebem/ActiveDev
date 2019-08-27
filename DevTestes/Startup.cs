@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DevTestes.Models;
+using DevTestes.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -35,9 +36,12 @@ namespace DevTestes
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            //options.UseMySql(Configuration.GetConnectionString("EspecieContext"), builder => builder.MigrationsAssembly("DiarioDePesca")));
             services.AddDbContext<DevTestesContext>(options => options.UseMySql(Configuration.GetConnectionString("DevConnection")));
-            
+
+            services.AddScoped<BugProblemaService>();
+            services.AddScoped<FuncionarioService>();
+            services.AddScoped<SprintService>();
+            services.AddScoped<ProdutoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

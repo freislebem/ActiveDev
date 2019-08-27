@@ -33,7 +33,7 @@ namespace DevTestes.Controllers
             }
 
             var funcionario = await _context.Funcionario
-                .FirstOrDefaultAsync(m => m.AnalistaId == id);
+                .FirstOrDefaultAsync(m => m.FuncionarioId == id);
             if (funcionario == null)
             {
                 return NotFound();
@@ -85,9 +85,9 @@ namespace DevTestes.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AnalistaId,NomeFuncionario")] Funcionario funcionario)
+        public async Task<IActionResult> Edit(int id, [Bind("FuncionarioId,NomeFuncionario")] Funcionario funcionario)
         {
-            if (id != funcionario.AnalistaId)
+            if (id != funcionario.FuncionarioId)
             {
                 return NotFound();
             }
@@ -101,7 +101,7 @@ namespace DevTestes.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FuncionarioExists(funcionario.AnalistaId))
+                    if (!FuncionarioExists(funcionario.FuncionarioId))
                     {
                         return NotFound();
                     }
@@ -124,7 +124,7 @@ namespace DevTestes.Controllers
             }
 
             var funcionario = await _context.Funcionario
-                .FirstOrDefaultAsync(m => m.AnalistaId == id);
+                .FirstOrDefaultAsync(m => m.FuncionarioId == id);
             if (funcionario == null)
             {
                 return NotFound();
@@ -146,7 +146,7 @@ namespace DevTestes.Controllers
 
         private bool FuncionarioExists(int id)
         {
-            return _context.Funcionario.Any(e => e.AnalistaId == id);
+            return _context.Funcionario.Any(e => e.FuncionarioId == id);
         }
     }
 }

@@ -3,14 +3,16 @@ using System;
 using DevTestes.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DevTestes.Migrations
 {
     [DbContext(typeof(DevTestesContext))]
-    partial class DevTestesContextModelSnapshot : ModelSnapshot
+    [Migration("20190825051212_ArrumandoCampoChaveFuncionado")]
+    partial class ArrumandoCampoChaveFuncionado
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,6 +24,8 @@ namespace DevTestes.Migrations
                     b.Property<int>("BugProblemaId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("AnalistaId");
+
                     b.Property<string>("Chamado")
                         .IsRequired()
                         .HasColumnType("varchar(6)");
@@ -30,8 +34,6 @@ namespace DevTestes.Migrations
                         .IsRequired();
 
                     b.Property<DateTime>("DtaComplemento");
-
-                    b.Property<int>("FuncionarioId");
 
                     b.Property<string>("Impacto")
                         .HasColumnType("varchar(10)");
@@ -42,7 +44,7 @@ namespace DevTestes.Migrations
 
                     b.HasKey("BugProblemaId");
 
-                    b.HasIndex("FuncionarioId");
+                    b.HasIndex("AnalistaId");
 
                     b.HasIndex("ProdutoId");
 
@@ -53,14 +55,14 @@ namespace DevTestes.Migrations
 
             modelBuilder.Entity("DevTestes.Models.Funcionario", b =>
                 {
-                    b.Property<int>("FuncionarioId")
+                    b.Property<int>("AnalistaId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("NomeFuncionario")
                         .IsRequired()
                         .HasColumnName("varchar(30)");
 
-                    b.HasKey("FuncionarioId");
+                    b.HasKey("AnalistaId");
 
                     b.ToTable("Funcionario");
                 });
@@ -97,7 +99,7 @@ namespace DevTestes.Migrations
                 {
                     b.HasOne("DevTestes.Models.Funcionario", "Funcionario")
                         .WithMany()
-                        .HasForeignKey("FuncionarioId")
+                        .HasForeignKey("AnalistaId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("DevTestes.Models.Produto", "Produto")

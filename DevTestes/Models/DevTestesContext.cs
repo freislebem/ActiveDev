@@ -15,8 +15,8 @@ namespace DevTestes.Models
         }
 
         public DbSet<BugProblema> BugProblemas { get; set; }
-        public DbSet<Produto> Produtos { get; set; }
         public DbSet<Sprint> Sprints { get; set; }
         public DbSet<Funcionario> Funcionario { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
     }
 }

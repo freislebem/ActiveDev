@@ -12,9 +12,9 @@ namespace DevTestes.Models
         [Key]
         public int BugProblemaId { get; set; }
 
-        [Column(TypeName = "varchar(30)")]
-        [Required(ErrorMessage = "Este campo é obrigatório!")]
-        public string Funcionario { get; set; }
+        //[Required(ErrorMessage = "Este campo é obrigatório!")]
+        public Funcionario Funcionario { get; set; }
+        public int FuncionarioId { get; set; }
 
         [Display(Name = "Data complemento")]
         [Required(ErrorMessage = "Este campo é obrigatório!")]
@@ -27,17 +27,21 @@ namespace DevTestes.Models
         [DataType(DataType.Currency)]
         public string Chamado { get; set; }
 
-        [Column(TypeName = "varchar(20)")]
-        [Required(ErrorMessage ="Este campo é obrigatório!")]
-        public string Sprint { get; set; }
+        //[Column(TypeName = "varchar(20)")]
+        //[Required(ErrorMessage ="Este campo é obrigatório!")]
+        public Sprint Sprint { get; set; }
+        public int SprintId { get; set; }
 
-        [Column(TypeName = "varchar(20)")]
-        public string Produto { get; set; }
+        
+        public Produto Produto { get; set; }
+        public int ProdutoId { get; set; }
 
         [Column(TypeName ="varchar(10)")]
         public string Impacto { get; set; }
 
         [Required(ErrorMessage ="Este campo é obrigatório!")]
         public string Descricao { get; set; }
+
+        
     }
 }

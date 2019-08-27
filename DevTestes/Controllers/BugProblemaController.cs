@@ -5,17 +5,26 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using DevTestes.Models.ViewModels;
 using DevTestes.Models;
+using DevTestes.Services;
 
 namespace DevTestes.Controllers
 {
     public class BugProblemaController : Controller
     {
         private readonly DevTestesContext _context;
-
-        public BugProblemaController(DevTestesContext context)
+        private readonly BugProblemaService _bugProblemaService;
+        private readonly FuncionarioService _funcionarioService;
+        private readonly SprintService _sprintService;
+        private readonly ProdutoService _produtoService;
+                
+        public BugProblemaController(DevTestesContext context, FuncionarioService funcionarioService, SprintService sprintService, ProdutoService produtoService)
         {
             _context = context;
+            _funcionarioService = funcionarioService;
+            _sprintService = sprintService;
+            _produtoService = produtoService;
         }
 
         // GET: BugProblema
@@ -45,7 +54,13 @@ namespace DevTestes.Controllers
         // GET: BugProblema/Create
         public IActionResult Create()
         {
-            return View();
+            var funcionarios = _funcionarioService.FindAll();
+            var sprints = _sprintService.FindAll();
+            var produtos = _produtoService.FindAll();
+
+            var viewModel = new BugProblemaFormViewModel { Funcionarios = funcionarios, Sprints = sprints, Produtos = produtos};
+            
+            return View(viewModel);
         }
 
         // POST: BugProblema/Create

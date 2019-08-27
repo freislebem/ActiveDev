@@ -1,10 +1,10 @@
-﻿@model DevTestes.Models.BugProblema
+﻿@model DevTestes.Models.ViewModels.BugProblemaFormViewModel
 
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Novo registro</h1>
+<div class="alert alert-success" role="alert"><h2>Novo registro</h2></div>
 
 <hr />
 <div class="row">
@@ -14,54 +14,51 @@
 
             <div class="form-row">
                 <div class="form-group col-md-5">
-                    <label asp-for="Funcionario" class="control-label"></label>
-                    <input asp-for="Funcionario" class="form-control" />
-                    <span asp-validation-for="Funcionario" class="text-danger"></span>
+                    <label asp-for="BugProblema.Funcionario" class="control-label"></label>
+                    <select asp-for="BugProblema.FuncionarioId" asp-items="@(new SelectList(Model.Funcionarios, "FuncionarioId", "NomeFuncionario"))" class="form-control"></select>
+                    <span asp-validation-for="BugProblema.Funcionario" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-3">
-                    <label asp-for="DtaComplemento" class="control-label"></label>
-                    <input asp-for="DtaComplemento" class="form-control" />
-                    <span asp-validation-for="DtaComplemento" class="text-danger"></span>
+                    <label asp-for="BugProblema.DtaComplemento" class="control-label"></label>
+                    <input asp-for="BugProblema.DtaComplemento" class="form-control" />
+                    <span asp-validation-for="BugProblema.DtaComplemento" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-2">
-                    <label asp-for="Chamado" class="control-label"></label>
-                    <input asp-for="Chamado" class="form-control" />
-                    <span asp-validation-for="Chamado" class="text-danger"></span>
+                    <label asp-for="BugProblema.Chamado" class="control-label"></label>
+                    <input asp-for="BugProblema.Chamado" class="form-control" />
+                    <span asp-validation-for="BugProblema.Chamado" class="text-danger"></span>
                 </div>
             </div>
             
             <div class="form-row">
                 <div class="form-group col-md-5">
-                    <label asp-for="Sprint" class="control-label"></label>
-                    <input asp-for="Sprint" class="form-control" />
-                    <span asp-validation-for="Sprint" class="text-danger"></span>
+                    <label asp-for="BugProblema.Sprint" class="control-label"></label>
+                    <select asp-for="BugProblema.SprintId" asp-items="@(new SelectList(Model.Sprints, "SprintId", "NomeSprint"))" class="form-control"></select>
+                    <span asp-validation-for="BugProblema.Sprint" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-3">
-                    <label asp-for="Produto" class="control-label"></label>
-                    <input asp-for="Produto" class="form-control" />
-                    <span asp-validation-for="Produto" class="text-danger"></span>
+                    <label asp-for="BugProblema.Produto" class="control-label"></label>
+                    <select asp-for="BugProblema.ProdutoId" asp-items="@(new SelectList(Model.Produtos, "ProdutoId", "NomeProduto"))" class="form-control"></select>
+                    
                 </div>
                 <div class="form-group col-md-2">
-                    <label asp-for="Impacto" class="control-label"></label>
-                    <input asp-for="Impacto" class="form-control" />
-                    <span asp-validation-for="Impacto" class="text-danger"></span>
+                    <label asp-for="BugProblema.Impacto" class="control-label"></label>
+                    <input asp-for="BugProblema.Impacto" class="form-control" />
+                    <span asp-validation-for="BugProblema.Impacto" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-10">
-                    <label asp-for="Descricao" class="control-label"></label>
-                    <input asp-for="Descricao" class="form-control" />
-                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                    <label asp-for="BugProblema.Descricao" class="control-label"></label>
+                    <input asp-for="BugProblema.Descricao" class="form-control" />
+                    <span asp-validation-for="BugProblema.Descricao" class="text-danger"></span>
                 </div>
             </div>
             
             <div class="form-group">
                 <input type="submit" value="Gravar" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-outline-success">Cancelar</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Voltar para a lista</a>
 </div>
 
 @section Scripts {

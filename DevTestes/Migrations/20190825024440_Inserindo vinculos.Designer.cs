@@ -3,14 +3,16 @@ using System;
 using DevTestes.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DevTestes.Migrations
 {
     [DbContext(typeof(DevTestesContext))]
-    partial class DevTestesContextModelSnapshot : ModelSnapshot
+    [Migration("20190825024440_Inserindo vinculos")]
+    partial class Inserindovinculos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,14 +55,14 @@ namespace DevTestes.Migrations
 
             modelBuilder.Entity("DevTestes.Models.Funcionario", b =>
                 {
-                    b.Property<int>("FuncionarioId")
+                    b.Property<int>("AnalistaId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("NomeFuncionario")
                         .IsRequired()
                         .HasColumnName("varchar(30)");
 
-                    b.HasKey("FuncionarioId");
+                    b.HasKey("AnalistaId");
 
                     b.ToTable("Funcionario");
                 });
