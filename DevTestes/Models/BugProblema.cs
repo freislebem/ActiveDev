@@ -9,13 +9,12 @@ namespace DevTestes.Models
 {
     public class BugProblema
     {
-        [Key]
-        public int BugProblemaId { get; set; }
+        
+        public int Id { get; set; }
 
-        //[Required(ErrorMessage = "Este campo é obrigatório!")]
-        public Funcionario Funcionario { get; set; }
         public int FuncionarioId { get; set; }
-
+        public Funcionario Funcionario { get; set; }
+                                
         [Display(Name = "Data complemento")]
         [Required(ErrorMessage = "Este campo é obrigatório!")]
         [DataType(DataType.Date)]
@@ -29,13 +28,12 @@ namespace DevTestes.Models
 
         //[Column(TypeName = "varchar(20)")]
         //[Required(ErrorMessage ="Este campo é obrigatório!")]
-        public Sprint Sprint { get; set; }
         public int SprintId { get; set; }
+        public Sprint Sprint { get; set; }
 
-        
-        public Produto Produto { get; set; }
         public int ProdutoId { get; set; }
-
+        public Produto Produto { get; set; }
+        
         [Column(TypeName ="varchar(10)")]
         public string Impacto { get; set; }
 

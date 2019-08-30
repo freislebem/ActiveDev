@@ -15,7 +15,7 @@
             <div class="form-row">
                 <div class="form-group col-md-5">
                     <label asp-for="BugProblema.Funcionario" class="control-label"></label>
-                    <select asp-for="BugProblema.FuncionarioId" asp-items="@(new SelectList(Model.Funcionarios, "FuncionarioId", "NomeFuncionario"))" class="form-control"></select>
+                    <select asp-for="BugProblema.Id" asp-items="@(new SelectList(Model.Funcionarios, "Id", "NomeFuncionario"))" class="form-control"></select>
                     <span asp-validation-for="BugProblema.Funcionario" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-3">

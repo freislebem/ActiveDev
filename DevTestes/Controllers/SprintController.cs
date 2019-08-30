@@ -33,7 +33,7 @@ namespace DevTestes.Controllers
             }
 
             var sprint = await _context.Sprints
-                .FirstOrDefaultAsync(m => m.SprintId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (sprint == null)
             {
                 return NotFound();
@@ -87,7 +87,7 @@ namespace DevTestes.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("SprintId,NomeSprint")] Sprint sprint)
         {
-            if (id != sprint.SprintId)
+            if (id != sprint.Id)
             {
                 return NotFound();
             }
@@ -101,7 +101,7 @@ namespace DevTestes.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SprintExists(sprint.SprintId))
+                    if (!SprintExists(sprint.Id))
                     {
                         return NotFound();
                     }
@@ -124,7 +124,7 @@ namespace DevTestes.Controllers
             }
 
             var sprint = await _context.Sprints
-                .FirstOrDefaultAsync(m => m.SprintId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (sprint == null)
             {
                 return NotFound();
@@ -146,7 +146,7 @@ namespace DevTestes.Controllers
 
         private bool SprintExists(int id)
         {
-            return _context.Sprints.Any(e => e.SprintId == id);
+            return _context.Sprints.Any(e => e.Id == id);
         }
     }
 }

@@ -33,7 +33,7 @@ namespace DevTestes.Controllers
             }
 
             var produto = await _context.Produtos
-                .FirstOrDefaultAsync(m => m.ProdutoId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (produto == null)
             {
                 return NotFound();
@@ -87,7 +87,7 @@ namespace DevTestes.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ProdutoId,NomeProduto")] Produto produto)
         {
-            if (id != produto.ProdutoId)
+            if (id != produto.Id)
             {
                 return NotFound();
             }
@@ -101,7 +101,7 @@ namespace DevTestes.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProdutoExists(produto.ProdutoId))
+                    if (!ProdutoExists(produto.Id))
                     {
                         return NotFound();
                     }
@@ -124,7 +124,7 @@ namespace DevTestes.Controllers
             }
 
             var produto = await _context.Produtos
-                .FirstOrDefaultAsync(m => m.ProdutoId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (produto == null)
             {
                 return NotFound();
@@ -146,7 +146,7 @@ namespace DevTestes.Controllers
 
         private bool ProdutoExists(int id)
         {
-            return _context.Produtos.Any(e => e.ProdutoId == id);
+            return _context.Produtos.Any(e => e.Id == id);
         }
     }
 }

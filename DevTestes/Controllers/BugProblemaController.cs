@@ -42,7 +42,7 @@ namespace DevTestes.Controllers
             }
 
             var bugProblema = await _context.BugProblemas
-                .FirstOrDefaultAsync(m => m.BugProblemaId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (bugProblema == null)
             {
                 return NotFound();
@@ -68,7 +68,7 @@ namespace DevTestes.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BugProblemaId,Funcionario,DtaComplemento,Chamado,Sprint,Produto,Impacto,Descricao")] BugProblema bugProblema)
+        public async Task<IActionResult> Create([Bind("Id,Funcionario,DtaComplemento,Chamado,Sprint,Produto,Impacto,Descricao")] BugProblema bugProblema)
         {
             if (ModelState.IsValid)
             {
@@ -100,9 +100,9 @@ namespace DevTestes.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BugProblemaId,Funcionario,DtaComplemento,Chamado,Sprint,Produto,Impacto,Descricao")] BugProblema bugProblema)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Funcionario,DtaComplemento,Chamado,Sprint,Produto,Impacto,Descricao")] BugProblema bugProblema)
         {
-            if (id != bugProblema.BugProblemaId)
+            if (id != bugProblema.Id)
             {
                 return NotFound();
             }
@@ -116,7 +116,7 @@ namespace DevTestes.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BugProblemaExists(bugProblema.BugProblemaId))
+                    if (!BugProblemaExists(bugProblema.Id))
                     {
                         return NotFound();
                     }
@@ -139,7 +139,7 @@ namespace DevTestes.Controllers
             }
 
             var bugProblema = await _context.BugProblemas
-                .FirstOrDefaultAsync(m => m.BugProblemaId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (bugProblema == null)
             {
                 return NotFound();
@@ -161,7 +161,7 @@ namespace DevTestes.Controllers
 
         private bool BugProblemaExists(int id)
         {
-            return _context.BugProblemas.Any(e => e.BugProblemaId == id);
+            return _context.BugProblemas.Any(e => e.Id == id);
         }
     }
 }

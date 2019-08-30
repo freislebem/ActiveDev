@@ -10,11 +10,14 @@ namespace DevTestes.Models
     public class Sprint
     {
         [Key]
-        public int SprintId { get; set; }
+        public int Id { get; set; }
 
         [Display(Name ="Nome da sprint")]
         [Required(ErrorMessage ="Este campo é obrigatório!")]
         [Column("varchar(20)")]
         public string NomeSprint { get; set; }
+
+        public int BugProblemaId { get; set; }
+        public BugProblema BugProblema { get; set; }
     }
 }

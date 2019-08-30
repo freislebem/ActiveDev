@@ -9,12 +9,16 @@ namespace DevTestes.Models
 {
     public class Funcionario
     {
-        [Key]
-        public int FuncionarioId { get; set; }
+        
+        public int Id { get; set; }
 
         [Display(Name ="Funcionário")]
         [Required(ErrorMessage ="Este campo é obrigatório!")]
         [Column("varchar(30)")]
         public string NomeFuncionario { get; set; }
+
+        public int BugProblemaId { get; set; }
+        public BugProblema BugProblema { get; set; }
+                
     }
 }
